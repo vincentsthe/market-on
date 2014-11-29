@@ -93,6 +93,10 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         throw new Exception("Unsupported operation exception");
     }
 
+    public static function getAllSeller() {
+        return User::find()->where(['is_seller' => 1])->all();
+    }
+
     public function getId()
     {
         return $this->id;

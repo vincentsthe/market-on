@@ -6,6 +6,7 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
+use app\models\db\User;
 use app\models\forms\LoginForm;
 use app\models\forms\ContactForm;
 
@@ -72,6 +73,24 @@ class SiteController extends Controller
 
     public function actionHome() {
         $this->home = true;
+
+        if(Yii::$app->request->isPost) {
+            Yii::$app->response->format = 'json';
+            $return = [];
+
+            $listToko = User::getAllSeller();
+            foreach ($listToko as $toko) {
+                $record = [];
+                $record['name'] = $toko->fullname;
+                $record['latitude'] = $toko->lat;
+                $record['longitude'] = $toko->lng;
+                $record['url'] = '';
+
+                $return[] = $record;
+            }
+
+            return $return;
+        }
 
         return $this->render('home');
     }
