@@ -9,6 +9,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use app\models\db\Category;
+
 /**
  * ItemController implements the CRUD actions for Item model.
  */
@@ -61,12 +63,14 @@ class ItemController extends Controller
     public function actionCreate()
     {
         $model = new Item();
+        $model->user_id = Yii::$app->user->identity->id;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'categories' => Category::find()->all()
             ]);
         }
     }
@@ -80,12 +84,14 @@ class ItemController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model->user_id = Yii::$app->user->identity->id;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'categories' => Category::find()->all()
             ]);
         }
     }

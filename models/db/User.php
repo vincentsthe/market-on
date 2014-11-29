@@ -84,6 +84,10 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         return User::findOne($id);
     }
 
+    public static function findByUsername($username)
+    {
+        return User::find()->where(['username' => $username])->one();
+    }
     public static function findIdentityByAccessToken($token, $type = null)
     {
         throw new Exception("Unsupported operation exception");
@@ -102,5 +106,9 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function validateAuthKey($authKey)
     {
         return $this->authKey === $authKey;
+    }
+
+    public function validatePassword($password){
+        return $this->password == $password;
     }
 }

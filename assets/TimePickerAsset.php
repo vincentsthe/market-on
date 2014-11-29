@@ -17,11 +17,14 @@ class TimePickerAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
+    public $jsOptions = [
+        'position' => \yii\web\View::POS_HEAD
+    ];
     public $css = [
         'css/jquery.datetimepicker.css',
     ];
     public $js = [
-        'js/jquery.datetimepicker.js'
+        'js/datetimepicker/jquery.datetimepicker.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

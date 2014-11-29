@@ -3,19 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\db\User;
-use app\models\search\UserSearch;
+use app\models\db\Cod;
+use app\models\search\CodSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-use app\models\db\Category;
-
-
 /**
- * UserController implements the CRUD actions for User model.
+ * CodController implements the CRUD actions for Cod model.
  */
-class UserController extends Controller
+class CodController extends Controller
 {
     public function behaviors()
     {
@@ -30,12 +27,12 @@ class UserController extends Controller
     }
 
     /**
-     * Lists all User models.
+     * Lists all Cod models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new UserSearch();
+        $searchModel = new CodSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +42,7 @@ class UserController extends Controller
     }
 
     /**
-     * Displays a single User model.
+     * Displays a single Cod model.
      * @param integer $id
      * @return mixed
      */
@@ -57,27 +54,25 @@ class UserController extends Controller
     }
 
     /**
-     * Creates a new User model.
+     * Creates a new Cod model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new User();
-        $model->user_id = Yii::$app->user->identity->id;
-        $categories = Category::find()->all();
+        $model = new Cod();
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'categories' => $categories
             ]);
         }
     }
 
     /**
-     * Updates an existing User model.
+     * Updates an existing Cod model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,7 +91,7 @@ class UserController extends Controller
     }
 
     /**
-     * Deletes an existing User model.
+     * Deletes an existing Cod model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -109,15 +104,15 @@ class UserController extends Controller
     }
 
     /**
-     * Finds the User model based on its primary key value.
+     * Finds the Cod model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return User the loaded model
+     * @return Cod the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = User::findOne($id)) !== null) {
+        if (($model = Cod::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

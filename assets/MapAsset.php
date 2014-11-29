@@ -24,7 +24,7 @@ class MapAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
-        "https://maps.googleapis.com/maps/api/js?v=3&sensor=true&key=AIzaSyC3h2wqa3ND0xEO6RiJJgirIgoX-w3Ckd0"
+        "https://maps.googleapis.com/maps/api/js?v=3&sensor=true&key=AIzaSyC3h2wqa3ND0xEO6RiJJgirIgoX-w3Ckd0",
     ];
     public $depends = [
         'yii\web\YiiAsset',

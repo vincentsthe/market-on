@@ -35,7 +35,7 @@ class Item extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'price', 'image_url', 'description', 'quantity', 'user_id', 'category_id'], 'required'],
+            [['name', 'price', 'description', 'quantity', 'user_id', 'category_id'], 'required'],
             [['price', 'quantity', 'user_id', 'category_id'], 'integer'],
             [['description'], 'string'],
             [['name'], 'string', 'max' => 100],
@@ -50,13 +50,13 @@ class Item extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'price' => 'Price',
+            'name' => 'Nama',
+            'price' => 'Harga',
             'image_url' => 'Image Url',
-            'description' => 'Description',
-            'quantity' => 'Quantity',
-            'user_id' => 'User ID',
-            'category_id' => 'Category ID',
+            'description' => 'Deskripsi',
+            'quantity' => 'Jumlah',
+            'user_id' => 'ID Pengguna',
+            'category_id' => 'Kategori',
         ];
     }
 
