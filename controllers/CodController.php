@@ -75,6 +75,10 @@ class CodController extends Controller
         }
     }
 
+    public function actionCalendar(){
+        return $this->render('calendar',[
+        ]);
+    }
     /**
      * Updates an existing Cod model.
      * If update is successful, the browser will be redirected to the 'view' page.
