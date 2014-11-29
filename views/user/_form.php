@@ -10,27 +10,33 @@ MapAsset::register($this);
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="user-form">
-
+<div class="signup-form">
     <?php $form = ActiveForm::begin(); ?>
+    <?= Html::activeTextInput($model,'username',['placeholder' => 'username']); ?>
+    <?= Html::activePasswordInput($model,'password',['placeholder'=>'password']); ?>
+    <?= Html::activeTextInput($model,'fullname',['placeholder' => 'fullname']); ?>
+    <?= $form->field($model, 'is_seller')->checkBox(['style'=>'height: 20px;']) ?>
 
-    <?= $form->field($model, 'username')->textInput(['maxlength' => 100]) ?>
+    <?= Html::activeTextInput($model,'lat',['placeholder'=>'latitude','disabled'=>true]); ?>
+    <?= Html::activeTextInput($model,'lng',['placeholder'=>'longitude','disabled' => true]); ?>
+    <?= Html::activeDropDownList($model,'category_id',ArrayHelper::map($categories,'id','name')); ?>
+    <?= Html::activeTextArea($model,'description'); ?>
+    <?php // $form->field($model, 'username')->textInput(['maxlength' => 100]) ?>
 
-    <?= $form->field($model, 'password')->passwordInput(['maxlength' => 100]) ?>
+    <?php //$form->field($model, 'password')->passwordInput(['maxlength' => 100]) ?>
 
-    <?= $form->field($model, 'fullname')->textInput(['maxlength' => 100]) ?>
+    <?php //$form->field($model, 'fullname')->textInput(['maxlength' => 100]) ?>
 
-    <?= $form->field($model, 'is_seller')->checkBox() ?>
 
     <div id='map-canvas' style='height:600px;'></div>
 
-    <?= $form->field($model, 'lat')->textInput(['id'=>'lat']) ?>
+    <?php //echo $form->field($model, 'lat')->textInput(['disabled'=>true]) ?>
 
-    <?= $form->field($model, 'lng')->textInput(['id'=>'lng']) ?>
+    <?php //echo $form->field($model, 'lng')->textInput(['disabled'=>true]) ?>
 
-    <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map($categories,'id','name')) ?>
+    <?php //echo $form->field($model, 'category_id')->dropDownList(ArrayHelper::map($categories,'id','name')) ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+    <?php //echo $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
@@ -47,51 +53,24 @@ MapAsset::register($this);
             center: new google.maps.LatLng(-6.8933215,107.6115761),
             zoom: 15
        };
-    var map = new google.maps.Map(
+    var map1 = new google.maps.Map(
         document.getElementById("map-canvas"),
         mapOptions
     );
     var marker = new google.maps.Marker({
         draggable: true,
         title: 'Start',
-        map: map,
+        map: map1,
     });
 
     
-    $(document).ready(function(){initialize();});
-    function initialize(){
+    $(document).ready(function(){initializeMarker();});
+    function initializeMarker(){
         marker.setPosition(new google.maps.LatLng(-6.8933215,107.6115761));
         google.maps.event.addListener(marker,'drag',function(e){
             //change 
-            $("#lat").val(marker.getPosition().lat());
-            $("#lng").val(marker.getPosition().lng());
+            $("#user-lat").val(marker.getPosition().lat());
+            $("#user-lng").val(marker.getPosition().lng());
         });
     }
-    /*
-    function changeLocation(){
-        var id = $("#locationmodel-name").val() - 1; //dari dropdownnya
-        $("#locationmodel-lat").val(locationData[id].lat);
-        $("#locationmodel-lng").val(locationData[id].lng);
-        marker.setPosition(new google.maps.LatLng(locationData[id].lat,locationData[id].lng));
-    }*/
-
-/*
-    function saveLocation(){
-        $("#notification").html("<div class='alert alert-warning'>Saving...</div>");
-        $.post(
-            '<?=Yii::$app->urlManager->createUrl(["location/setlocation"]);?>',
-            {
-                "_csrf" : csrf,
-                "id" : $("#locationmodel-name").val(),
-                "lat": $("#locationmodel-lat").val(),
-                "lng":  $("#locationmodel-lng").val(),
-            },
-            function(data,status){
-                $("#notification").html("");
-            }
-        ).error(function(){
-            $("#notification").html("Error. Please refresh the page.");
-        });
-    }*/
-
 </script>

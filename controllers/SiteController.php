@@ -8,10 +8,13 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\forms\LoginForm;
 use app\models\forms\ContactForm;
-
+use app\models\db\Item;
 class SiteController extends Controller
 {
     public $home = false;
+    public $login_form;
+
+    public $defaultAction = 'home';
 
     public function behaviors()
     {
@@ -49,11 +52,12 @@ class SiteController extends Controller
         ];
     }
 
+/*
     public function actionIndex()
     {
         return $this->render('index');
-    }
-
+    }*/
+/*
     public function actionLogin()
     {
         if (!\Yii::$app->user->isGuest) {
@@ -69,11 +73,29 @@ class SiteController extends Controller
             ]);
         }
     }
-
+*/
     public function actionHome() {
         $this->home = true;
 
-        return $this->render('home');
+
+        $this->login_form = new LoginForm();
+        /*
+        if ($this->login_form->load(Yii::$app->request->post())){
+            //var_dump($this->login_form);
+            //exit();
+        }*/
+
+        if ($this->login_form->load(Yii::$app->request->post()) && $this->login_form->login()) {
+            return $this->goBack();
+        } else {
+            return $this->render('home',[
+                'items' => Item::find()->limit(9)->all(),
+            ]);
+        }
+
+        return $this->render('home',[
+            'items' => Item::find()->limit(9)->all(),
+        ]);
     }
 
     public function actionLogout()

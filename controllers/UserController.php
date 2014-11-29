@@ -64,14 +64,13 @@ class UserController extends Controller
     public function actionCreate()
     {
         $model = new User();
-        $model->user_id = Yii::$app->user->identity->id;
-        $categories = Category::find()->all();
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'categories' => $categories
+                'categories' => Category::find()->all()
             ]);
         }
     }
@@ -91,6 +90,7 @@ class UserController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'categories' => Category::find()->all()
             ]);
         }
     }

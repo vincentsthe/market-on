@@ -6,19 +6,21 @@ use yii\helpers\ArrayHelper;
 /* @var $this yii\web\View */
 /* @var $model app\models\db\Item */
 /* @var $form yii\widgets\ActiveForm */
-var_dump($model->attributes);
+//var_dump($model->attributes);
 ?>
 
 <div class="item-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
     <?= $form->errorSummary($model); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => 100]) ?>
 
     <?= $form->field($model, 'price')->textInput() ?>
 
-    <?= $form->field($model, 'image_url')->textInput(['maxlength' => 500]) ?>
+    <?= $form->field($model,'_file')->fileInput(); ?>
+
+    <?php //$form->field($model, 'image_url')->textInput(['maxlength' => 500]) ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 

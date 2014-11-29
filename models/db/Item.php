@@ -21,6 +21,8 @@ use Yii;
  */
 class Item extends \yii\db\ActiveRecord
 {
+    public $_file;
+
     /**
      * @inheritdoc
      */
@@ -36,6 +38,7 @@ class Item extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'price', 'description', 'quantity', 'user_id', 'category_id'], 'required'],
+            [['_file'],'file'],
             [['price', 'quantity', 'user_id', 'category_id'], 'integer'],
             [['description'], 'string'],
             [['name'], 'string', 'max' => 100],
@@ -57,8 +60,17 @@ class Item extends \yii\db\ActiveRecord
             'quantity' => 'Jumlah',
             'user_id' => 'ID Pengguna',
             'category_id' => 'Kategori',
+            '_file' => 'Gambar'
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUser() 
+    { 
+        return $this->hasOne(User::className(), ['id' => 'user_id']); 
+    } 
 
     /**
      * @return \yii\db\ActiveQuery

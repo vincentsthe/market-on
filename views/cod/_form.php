@@ -14,14 +14,21 @@ MapAsset::register($this);
 <div class="cod-form">
 
     <?php $form = ActiveForm::begin(); ?>
+    <label>Pembeli</label> : <?= $model->buyer->fullname; ?>
+
+    <?= Html::activeHiddenInput($model,'buyer_id'); ?>
+
+    <?= Html::activeHiddenInput($model, 'item_id'); ?>
+
+    <?= Html::activeHiddenInput($model, 'seller_id'); ?>
 
     <?= $form->field($model, 'date')->textInput(['id'=>'cod-date']) ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'buyer_id')->textInput() ?>
 
-    <?= $form->field($model, 'seller_id')->textInput() ?>
+
+    
 
     <?= $form->field($model, 'quantity')->textInput() ?>
 
@@ -30,7 +37,7 @@ MapAsset::register($this);
 
     <?= $form->field($model, 'lng')->textInput(['disabled'=>true]) ?>
 
-    <?= $form->field($model, 'item_id')->textInput(['disabled'=>true]) ?>
+    
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
@@ -59,8 +66,8 @@ MapAsset::register($this);
     });
 
     
-    $(document).ready(function(){initialize();});
-    function initialize(){
+    $(document).ready(function(){initializeMarker();});
+    function initializeMarker(){
         marker.setPosition(new google.maps.LatLng(-6.8933215,107.6115761));
         google.maps.event.addListener(marker,'drag',function(e){
             //change 
