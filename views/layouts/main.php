@@ -87,7 +87,7 @@ if (isset($this->context->login_form)) {
                         <h2>User Login</h2>
                         <div class='login-form'>
                         <?php $form = ActiveForm::begin([
-                            'action' => ['/site/home'],
+                            'action' => ['/site/login'],
                             'fieldConfig' => [
                                 'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
                                 'labelOptions' => ['class' => 'col-lg-1 control-label'],

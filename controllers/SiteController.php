@@ -6,6 +6,7 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
+use app\models\db\User;
 use app\models\forms\LoginForm;
 use app\models\forms\ContactForm;
 use app\models\db\Item;
@@ -57,45 +58,44 @@ class SiteController extends Controller
     {
         return $this->render('index');
     }*/
-/*
+
     public function actionLogin()
     {
         if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
+            return $this->redirect('home');
         }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-    }
-*/
-    public function actionHome() {
-        $this->home = true;
-
 
         $this->login_form = new LoginForm();
-        /*
-        if ($this->login_form->load(Yii::$app->request->post())){
-            //var_dump($this->login_form);
-            //exit();
-        }*/
-
         if ($this->login_form->load(Yii::$app->request->post()) && $this->login_form->login()) {
             return $this->goBack();
         } else {
-            return $this->render('home',[
-                'items' => Item::find()->limit(9)->all(),
-            ]);
+            return $this->redirect('home');
+        }
+    }
+
+    public function actionHome() {
+        $this->home = true;
+        $this->login_form = new LoginForm();
+
+        if(Yii::$app->request->isPost) {
+            Yii::$app->response->format = 'json';
+            $return = [];
+
+            $listToko = User::getAllSeller();
+            foreach ($listToko as $toko) {
+                $record = [];
+                $record['name'] = $toko->fullname;
+                $record['latitude'] = $toko->lat;
+                $record['longitude'] = $toko->lng;
+                $record['url'] = '';
+
+                $return[] = $record;
+            }
+
+            return $return;
         }
 
-        return $this->render('home',[
-            'items' => Item::find()->limit(9)->all(),
-        ]);
+        return $this->render('home',['items' => Item::find()->limit(9)->all()]);
     }
 
     public function actionLogout()
