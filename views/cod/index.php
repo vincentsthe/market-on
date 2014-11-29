@@ -45,8 +45,8 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => 'Aksi',
                 'value' => function($model){
-                    return Html::a('Konfirm',Yii::$app->urlManager->createUrl(['/cod/accept','id'=>$model->id]))." | ".
-                    Html::a('Hapus',['/cod/delete','id'=>$model->id],['data-method'=>'post']);
+                    return Html::a('<i class="fa fa-check"></i>',Yii::$app->urlManager->createUrl(['/cod/accept','id'=>$model->id])).
+                    Html::a('<i class="fa fa-times"></i>',['/cod/delete','id'=>$model->id],['data-method'=>'post']);
                 } ,
                 'format' => 'html'
             ]
@@ -86,8 +86,8 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => 'Aksi',
                 'value' => function($model){
-                    return Html::a('Ubah',['/cod/update','id'=>$model->id])." | ".
-                    Html::a('Hapus',['/cod/delete','id'=>$model->id],['data-method'=>'post']);
+                    return Html::a('<i class="fa fa-pencil"></i>',['/cod/update','id'=>$model->id]).
+                    Html::a('<i class="fa fa-times"></i>',['/cod/delete','id'=>$model->id],['data-method'=>'post']);
                 } ,
                 'format' => 'html'
             ]
