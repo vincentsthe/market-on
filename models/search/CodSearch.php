@@ -48,6 +48,7 @@ class CodSearch extends Cod
             'query' => $query,
         ]);
 
+        $query->andFilterWhere(['accepted' => 0]);
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
         }
@@ -61,6 +62,7 @@ class CodSearch extends Cod
             'lat' => $this->lat,
             'lng' => $this->lng,
             'item_id' => $this->item_id,
+            'accepted' => $this->accepted,
         ]);
 
         $query->andFilterWhere(['like', 'description', $this->description]);

@@ -14,7 +14,7 @@
         <h4 class="modal-title" id="myModalLabel">3 November 2014</h4>
       </div>
       <div class="modal-body">
-            Transaksi dengan Vincent di Cihampelas Walk.
+            Transaksi dengan Yafi di Cihampelas Walk.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -73,7 +73,7 @@ if (isset($this->context->login_form)) {
         </div>
     </div>
 </header>
-    <section>
+    <section style='min-height:595px;'>
         <div class="container">
             <div class="row">
                 <?php if(isset($this->context->home) && ($this->context->home == true)): ?>
