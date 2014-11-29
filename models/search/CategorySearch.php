@@ -47,6 +47,11 @@ class CategorySearch extends Category
             'query' => $query,
         ]);
 
+        if (Yii::$app->user->identity->is_seller){
+            $query->andFilterWhere(['seller_id'=>Yii::$app->user->id]);
+        } else {
+            $query->andFilterWhere(['buyer_id' => Yii::$app->user->id]);
+        }
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
         }

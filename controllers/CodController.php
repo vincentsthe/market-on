@@ -26,6 +26,13 @@ class CodController extends Controller
         ];
     }
 
+    public function actionAccept($id){
+        $model = $this->findModel($id);
+        $model->accepted = 1;
+        $model->save();
+        $this->redirect('index');
+    }
+
     /**
      * Lists all Cod models.
      * @return mixed
@@ -33,6 +40,8 @@ class CodController extends Controller
     public function actionIndex()
     {
         $searchModel = new CodSearch();
+        //hanya tampilkan yang belum disetujui
+        $searchModel->accepted = 0;
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
