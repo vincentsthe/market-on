@@ -52,8 +52,8 @@ class Cod extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'date' => 'Date',
-            'description' => 'Description',
+            'date' => 'Tanggal Ketemuan',
+            'description' => 'Deskripsi',
             'buyer_id' => 'Buyer ID',
             'seller_id' => 'Seller ID',
             'quantity' => 'Quantity',

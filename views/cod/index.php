@@ -12,24 +12,31 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cod-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1>Daftar Tawaran</h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Cod', ['create'], ['class' => 'btn btn-success']) ?>
+        <?php //echo Html::a('Create Cod', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'date',
+            [
+                'label' => 'Item',
+                'value' => function($model){ return $model->item->name; }
+            ],
             'description:ntext',
-            'buyer_id',
-            'seller_id',
+            [
+                'label' => 'Peminat',
+                'value' => '$model->buyer->fullname'
+            ],
+            //'seller_id',
             // 'quantity',
             // 'lat',
             // 'lng',

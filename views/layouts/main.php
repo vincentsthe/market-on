@@ -5,12 +5,23 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\assets\PlaceAsset;
+use yii\widgets\ActiveForm;
+use app\models\forms\LoginForm;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
 
 AppAsset::register($this);
 PlaceAsset::register($this);
+if (isset($this->context->login_form)) {
+    $login_form = $this->context->login_form;
+} else {
+    $login_form = new LoginForm();
+}
+
+//var_dump($model);
+//exit();
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -25,35 +36,43 @@ PlaceAsset::register($this);
 <body>
 
 <?php $this->beginBody() ?>
-    <header id="header"><!--header-->       
-        <div class="header-middle"><!--header-middle-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="logo pull-left">
-                            <a href="index.html"><img src="<?= Yii::$app->request->BaseUrl ?>/img/home/logo.png" alt="" /></a>
-                        </div>
+<header id="header"> 
+    
+    <div class='header-middle'>
+        <div class='container'>
+            <div class='row'>
+                <div class='col-xs-4'>
+                    <div class='logo pull-left'>
+                        <?= Html::a(Html::img(Yii::getAlias('@web')."/img/logo.png"),['/site/home']);?>
                     </div>
-                    <div class="col-sm-8">
-                        <div class="shop-menu pull-right">
-                            <ul class="nav navbar-nav">
-                                <div class="search_box pull-right">
-                                    <input type="text" placeholder="Search"/>
-                                </div>
-                                <li><a href="#"><i class="fa fa-user"></i> Akun</a></li>
-                                <li><a href="#"><i class="fa fa-dollar"></i> Jual barang</a></li>
-                                <li><a href="checkout.html"><i class="fa fa-list"></i> Lihat tawaran</a></li>
-                                <li><a href="cart.html"><i class="fa fa-calendar"></i> Schedule</a></li>
-                                <li><a href="login.html"><i class="fa fa-crosshairs"></i> Locator</a></li>
-                            </ul>
-                        </div>
+                </div>
+                <div class='col-xs-8'>
+                    <div class='shop-menu pull-right'>
+                        <?php
+
+                            echo Nav::widget([
+                                'options' => ['class' => 'nav navbar-nav'],
+                                'items' => [
+                                    [
+                                        //dropdown
+                                        'label' => '<i class="fa fa-user"></i> Logout',
+                                        'url' => ['/site/logout'],'linkOptions' => ['data-method' => 'post'],
+                                        'visible' => !Yii::$app->user->isGuest
+                                    ],
+                                    ['label' => '<i class="fa fa-dollar"></i>Jual Barang', 'url' => ['/item/create']],
+                                    ['label' => '<i class="fa fa-list"></i> Lihat Tawaran', 'url' => ['/cod/index']],
+                                    ['label' => '<i class="fa fa-calendar"></i> Jadwal', 'url' => ['/cod/calendar']],
+                                    ['label' => '<i class="fa fa-crosshairs"></i> Locator', 'url' => ['/locator/index']],
+                                ],
+                                'encodeLabels' => false
+                            ]);
+                        ?>
                     </div>
                 </div>
             </div>
-        </div><!--/header-middle-->
-    </header><!--/header-->
-    
-
+        </div>
+    </div>
+</header>
     <section>
         <div class="container">
             <div class="row">
@@ -64,18 +83,35 @@ PlaceAsset::register($this);
             <div class="row">
                 <div class="col-sm-3">
                     <div class="left-sidebar">
+                        <?php if (Yii::$app->user->isGuest): ?>
                         <h2>User Login</h2>
-                        <div class="login-form"><!--login form-->
-                            <form action="#">
-                                <input type="text" placeholder="Username" />
-                                <input type="email" placeholder="Password" />
-                                <span>
-                                    <input type="checkbox" class="checkbox"> 
-                                    Keep me signed in
-                                </span>
-                                <button type="submit" class="btn btn-default">Login</button> <br />
-                            </form>
-                        </div><!--/login form-->
+                        <div class='login-form'>
+                        <?php $form = ActiveForm::begin([
+                            'action' => ['/site/login'],
+                            'fieldConfig' => [
+                                'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
+                                'labelOptions' => ['class' => 'col-lg-1 control-label'],
+                            ],
+                        ]); ?>
+
+                        <?= Html::activeTextInput($login_form, 'username',['placeholder' => 'Username']); ?>
+
+                        <?= Html::activePasswordInput($login_form, 'password',['placeholder' => 'Password']); ?>
+                        <?= Html::activeCheckbox($login_form,'rememberMe',['class' => 'checkbox']); ?>
+                        <br/>
+                        <?= Html::submitButton('Login',['class' => 'btn btn-default']); ?>
+                        <br/>
+                        Belum punya akun? <?= Html::a('Daftar di sini',['/user/create']); ?>
+                        <?php ActiveForm::end(); ?>
+                        </div>
+                        <br/>
+                        <?php else: ?>
+                        <h2>Welcome, <?=Yii::$app->user->identity->fullname; ?>  </h2>
+                        <center>
+                        <?= Html::a('Edit Profil',['/user/update','id'=>Yii::$app->user->identity->id]); ?>
+                        </center>
+                        <br/>
+                        <?php endif; ?>
                         
                         <div class="brands_products"><!--brands_products-->
                             <h2>Kategori</h2>

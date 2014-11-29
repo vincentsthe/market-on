@@ -58,10 +58,14 @@ class CodController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($item_id)
     {
         $model = new Cod();
-
+        $model->item_id = $item_id;
+        $model->buyer_id = Yii::$app->user->identity->id;
+        $model->seller_id = $model->item->user->id;
+        $model->lat = -6.8933215;
+        $model->lng = 107.6115761;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -71,6 +75,10 @@ class CodController extends Controller
         }
     }
 
+    public function actionCalendar(){
+        return $this->render('calendar',[
+        ]);
+    }
     /**
      * Updates an existing Cod model.
      * If update is successful, the browser will be redirected to the 'view' page.

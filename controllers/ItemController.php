@@ -8,6 +8,8 @@ use app\models\search\ItemSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+
 
 use app\models\db\Category;
 
@@ -65,7 +67,11 @@ class ItemController extends Controller
         $model = new Item();
         $model->user_id = Yii::$app->user->identity->id;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) { 
+            $model->_file = UploadedFile::getInstance($model,'_file');       
+            $model->_file->saveAs("uploads/item/$model->id" . $model->_file->baseName . '.' . $model->_file->extension);
+            $model->image_url = Yii::getAlias('@web')."/uploads/item/$model->id" . $model->_file->baseName . '.' . $model->_file->extension;
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -86,7 +92,11 @@ class ItemController extends Controller
         $model = $this->findModel($id);
         $model->user_id = Yii::$app->user->identity->id;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) { 
+            $model->_file = UploadedFile::getInstance($model,'_file');       
+            $model->_file->saveAs("uploads/item/$model->id" . $model->_file->baseName . '.' . $model->_file->extension);
+            $model->image_url = Yii::getAlias('@web')."/uploads/item/$model->id" . $model->_file->baseName . '.' . $model->_file->extension;
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cod-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= $model->item->name ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,
