@@ -1,4 +1,5 @@
 var map;
+var cnt = 0;
 
 function createMarker(place) {
 	var myLatlng = new google.maps.LatLng(place.latitude, place.longitude);
@@ -9,12 +10,16 @@ function createMarker(place) {
       content: contentString,
       maxWidth:200
   });
+  window.cnt++;
 
   var marker = new google.maps.Marker({
       position: myLatlng,
       map: map,
-      icon: '../../img/marker0.png',
+      icon: '../../img/marker' + window.cnt + '.png',
   });
+  if(cnt == 3) {
+    window.cnt = 0;
+  }
   infowindow.open(map,marker);
 
   google.maps.event.addListener(marker, 'click', function() {
