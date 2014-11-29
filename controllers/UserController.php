@@ -98,8 +98,10 @@ class UserController extends Controller
         }
     }
 
-    public function actionFollow(){
-       return $this->render('follow');
+    public function actionFollow($id){
+        $model = $this->findModel($id);
+
+        return $this->render('follow',['model'=>$model]);
     }
     /**
      * Deletes an existing User model.
