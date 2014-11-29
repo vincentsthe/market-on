@@ -11,6 +11,8 @@ use app\models\forms\ContactForm;
 
 class SiteController extends Controller
 {
+    public $home = false;
+
     public function behaviors()
     {
         return [
@@ -66,6 +68,12 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+
+    public function actionHome() {
+        $this->home = true;
+
+        return $this->render('home');
     }
 
     public function actionLogout()
