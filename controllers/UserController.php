@@ -64,7 +64,8 @@ class UserController extends Controller
     public function actionCreate()
     {
         $model = new User();
-        
+        $model->lat = -6.8933215;
+        $model->lng = 107.6115761;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -86,6 +87,8 @@ class UserController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            //var_dump($model);
+            //exit();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

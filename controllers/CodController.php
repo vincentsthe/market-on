@@ -64,7 +64,8 @@ class CodController extends Controller
         $model->item_id = $item_id;
         $model->buyer_id = Yii::$app->user->identity->id;
         $model->seller_id = $model->item->user->id;
-
+        $model->lat = -6.8933215;
+        $model->lng = 107.6115761;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {

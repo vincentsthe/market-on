@@ -33,9 +33,9 @@ MapAsset::register($this);
     <?= $form->field($model, 'quantity')->textInput() ?>
 
     <div id='map-canvas' style='height:500px;'></div>
-    <?= $form->field($model, 'lat')->textInput(['disabled'=>true]) ?>
+    <?= Html::activeHiddenInput($model, 'lat'); ?>
 
-    <?= $form->field($model, 'lng')->textInput(['disabled'=>true]) ?>
+    <?=  Html::activeHiddenInput($model, 'lng'); ?>
 
     
 
@@ -50,9 +50,10 @@ MapAsset::register($this);
         });
     </script>
 <script type="text/javascript">
-    
+    var lat = <?=$model->lat;?>;
+    var lng = <?=$model->lng;?>;
     var mapOptions = {
-            center: new google.maps.LatLng(-6.8933215,107.6115761),
+            center: new google.maps.LatLng(lat,lng),
             zoom: 15
        };
     var map = new google.maps.Map(
@@ -68,7 +69,7 @@ MapAsset::register($this);
     
     $(document).ready(function(){initializeMarker();});
     function initializeMarker(){
-        marker.setPosition(new google.maps.LatLng(-6.8933215,107.6115761));
+        marker.setPosition(new google.maps.LatLng(lat,lng));
         google.maps.event.addListener(marker,'drag',function(e){
             //change 
             $("#cod-lat").val(marker.getPosition().lat());

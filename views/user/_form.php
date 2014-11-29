@@ -17,8 +17,8 @@ MapAsset::register($this);
     <?= Html::activeTextInput($model,'fullname',['placeholder' => 'fullname']); ?>
     <?= $form->field($model, 'is_seller')->checkBox(['style'=>'height: 20px;']) ?>
 
-    <?= Html::activeTextInput($model,'lat',['placeholder'=>'latitude','disabled'=>true]); ?>
-    <?= Html::activeTextInput($model,'lng',['placeholder'=>'longitude','disabled' => true]); ?>
+    <?= Html::activeHiddenInput($model,'lat',['placeholder'=>'latitude']); ?>
+    <?= Html::activeHiddenInput($model,'lng',['placeholder'=>'longitude']); ?>
     <?= Html::activeDropDownList($model,'category_id',ArrayHelper::map($categories,'id','name')); ?>
     <?= Html::activeTextArea($model,'description'); ?>
     <?php // $form->field($model, 'username')->textInput(['maxlength' => 100]) ?>
@@ -47,10 +47,14 @@ MapAsset::register($this);
 </div>
 <script>
     var directionsService = new google.maps.DirectionsService();
+    var lat = <?=$model->lat;?>;
+    var lng = <?=$model->lng;?>;
+    console.log(lat);
+    console.log(lng);
     var directionsResult;
     var locationData;
     var mapOptions = {
-            center: new google.maps.LatLng(-6.8933215,107.6115761),
+            center: new google.maps.LatLng(lat,lng),
             zoom: 15
        };
     var map1 = new google.maps.Map(
@@ -66,7 +70,8 @@ MapAsset::register($this);
     
     $(document).ready(function(){initializeMarker();});
     function initializeMarker(){
-        marker.setPosition(new google.maps.LatLng(-6.8933215,107.6115761));
+        //marker.setPosition(new google.maps.LatLng(-6.8933215,107.6115761));
+        marker.setPosition(new google.maps.LatLng(lat,lng));
         google.maps.event.addListener(marker,'drag',function(e){
             //change 
             $("#user-lat").val(marker.getPosition().lat());
