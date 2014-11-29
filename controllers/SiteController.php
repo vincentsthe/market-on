@@ -84,7 +84,7 @@ class SiteController extends Controller
                 $record['name'] = $toko->fullname;
                 $record['latitude'] = $toko->lat;
                 $record['longitude'] = $toko->lng;
-                $record['url'] = '';
+                $record['url'] = Yii::$app->urlManager->createUrl(['/user/view', 'id'=>$toko->id]);
 
                 $return[] = $record;
             }

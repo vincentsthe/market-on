@@ -2,12 +2,8 @@ var map;
 
 function createMarker(place) {
 	var myLatlng = new google.maps.LatLng(place.latitude, place.longitude);
-  var mapOptions = {
-    zoom: 14,
-    center: myLatlng
-  };
 
-  var contentString = '<h3 style="padding:0;margin:3px 7px;">' + place['name'] + '</h3>';
+  var contentString = '<h5 style="padding:0;margin:2px 5px;">' + place['name'] + '</h5>';
 
   var infowindow = new google.maps.InfoWindow({
       content: contentString
@@ -19,9 +15,13 @@ function createMarker(place) {
       icon: '../../img/marker0.png',
   });
   infowindow.open(map,marker);
+
+  google.maps.event.addListener(marker, 'click', function() {
+    window.location.replace(place['url']);
+  });
 }
 
-function initialize() {
+function initializeHome() {
   var myLatlng = new google.maps.LatLng(-6.886217, 107.608454);
   var mapOptions = {
     zoom: 14,
@@ -37,9 +37,8 @@ function initialize() {
 }
 
 $(document).ready(function() {
-	initialize();
+	initializeHome();
 	$.post("?", function(data) {
-
 		for(i in data) {
 			createMarker(data[i]);
 		}
