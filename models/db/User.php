@@ -58,7 +58,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             'is_seller' => 'Penjual',
             'lat' => 'Lat',
             'lng' => 'Lng',
-            'category_id' => 'Category ID',
+            'category_id' => 'Kategori',
             'description' => 'Description',
         ];
     }
