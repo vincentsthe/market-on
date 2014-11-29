@@ -3,10 +3,11 @@ var map;
 function createMarker(place) {
 	var myLatlng = new google.maps.LatLng(place.latitude, place.longitude);
 
-  var contentString = '<h5 style="padding:0;margin:2px 5px;">' + place['name'] + '</h5>';
+  var contentString = '<h5 style="padding:5px 0px 0 0;margin:2px;">' + place['name'] + '</h5><p style="color:#555;margin:0;padding:0 20px 5px 0;">' + place['category'] + '</p>';
 
   var infowindow = new google.maps.InfoWindow({
-      content: contentString
+      content: contentString,
+      maxWidth:200
   });
 
   var marker = new google.maps.Marker({
