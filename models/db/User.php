@@ -55,7 +55,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             'username' => 'Username',
             'password' => 'Password',
             'fullname' => 'Fullname',
-            'is_seller' => 'Is Seller',
+            'is_seller' => 'Penjual',
             'lat' => 'Lat',
             'lng' => 'Lng',
             'category_id' => 'Category ID',

@@ -4,13 +4,15 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\db\User */
+/* @var $model app\models\db\Category */
 
-$this->title = 'Create User';
-$this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
+$this->title = 'Create Category';
+$this->params['breadcrumbs'][] = ['label' => 'Categories', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+var_dump($categories);
+exit();
 ?>
-<div class="user-create">
+<div class="category-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

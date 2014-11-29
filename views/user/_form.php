@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\db\User */
@@ -18,13 +19,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'fullname')->textInput(['maxlength' => 100]) ?>
 
-    <?= $form->field($model, 'is_seller')->textInput() ?>
+    <?= $form->field($model, 'is_seller')->checkBox() ?>
 
     <?= $form->field($model, 'lat')->textInput() ?>
 
     <?= $form->field($model, 'lng')->textInput() ?>
 
-    <?= $form->field($model, 'category_id')->textInput() ?>
+    <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map($categories,'id','name')) ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
