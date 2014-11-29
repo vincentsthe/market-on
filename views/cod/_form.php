@@ -11,8 +11,8 @@ TimePickerAsset::register($this);
 MapAsset::register($this);
 ?>
 
-<div class="cod-form">
-
+<div class="signup-form">
+    <?= Html::img($model->item->image_url,['width'=>250,'height'=>250]); ?>
     <?php $form = ActiveForm::begin(); ?>
     <label>Pembeli</label> : <?= $model->buyer->fullname; ?>
 
@@ -31,16 +31,17 @@ MapAsset::register($this);
     
 
     <?= $form->field($model, 'quantity')->textInput() ?>
-
+    <label>Lokasi Pertemuan</label>
     <div id='map-canvas' style='height:500px;'></div>
     <?= Html::activeHiddenInput($model, 'lat'); ?>
 
     <?=  Html::activeHiddenInput($model, 'lng'); ?>
 
-    
+    <br/>
 
+    <input type='text' placeholder='nomor HP untuk SMS pengingat (opsional)'/>
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Beli' : 'Ubah', ['class' => 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

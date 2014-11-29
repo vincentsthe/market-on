@@ -15,8 +15,9 @@ MapAsset::register($this);
     <?= Html::activeTextInput($model,'username',['placeholder' => 'username']); ?>
     <?= Html::activePasswordInput($model,'password',['placeholder'=>'password']); ?>
     <?= Html::activeTextInput($model,'fullname',['placeholder' => 'fullname']); ?>
-    <?= $form->field($model, 'is_seller')->checkBox(['style'=>'height: 20px;']) ?>
-
+    <?= Html::activeDropDownList($model, 'is_seller',['1'=>'Penjual','0'=>'Pembeli']); ?>
+    <br/>
+    <br/>
     <?= Html::activeHiddenInput($model,'lat',['placeholder'=>'latitude']); ?>
     <?= Html::activeHiddenInput($model,'lng',['placeholder'=>'longitude']); ?>
     <?= Html::activeDropDownList($model,'category_id',ArrayHelper::map($categories,'id','name')); ?>
@@ -27,7 +28,7 @@ MapAsset::register($this);
 
     <?php //$form->field($model, 'fullname')->textInput(['maxlength' => 100]) ?>
 
-
+    <label>Alamat</label>
     <div id='map-canvas' style='height:600px;'></div>
 
     <?php //echo $form->field($model, 'lat')->textInput(['disabled'=>true]) ?>
@@ -37,7 +38,10 @@ MapAsset::register($this);
     <?php //echo $form->field($model, 'category_id')->dropDownList(ArrayHelper::map($categories,'id','name')) ?>
 
     <?php //echo $form->field($model, 'description')->textarea(['rows' => 6]) ?>
-
+    <br/>
+    <div class='row'> 
+    <input type='checkbox' style='width:20px; height: 20px; display: inline-block;' /> Berlangganan via email
+    </div>
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

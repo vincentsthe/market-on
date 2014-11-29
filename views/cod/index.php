@@ -34,16 +34,28 @@ $this->params['breadcrumbs'][] = $this->title;
             'description:ntext',
             [
                 'label' => 'Peminat',
-                'value' => '$model->buyer->fullname'
+                'value' => function($model){
+                    return $model->buyer->fullname;
+                },
+                
             ],
+            'quantity',
+
             //'seller_id',
             // 'quantity',
             // 'lat',
             // 'lng',
             // 'item_id',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'label' => 'Aksi',
+                'value' => function($model){
+                    return "<a href='#'>Konfirmasi</a> | <a href='#'>Hapus</a>";
+                } ,
+                'format' => 'html'
+            ]
         ],
+        'tableOptions' => ['class' => 'table table-striped table-bordered','style'=>'width: 100% !important;']
     ]); ?>
 
 </div>

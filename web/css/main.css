@@ -34,7 +34,7 @@ a {
     transition: 300ms;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, h7 {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -77,7 +77,7 @@ a#scrollUp i{
 
 .contactinfo ul li a{
   font-size: 12px;
-  color: #696763;
+  color: #2c2c2c;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -90,7 +90,7 @@ a#scrollUp i{
 .social-icons ul li a {
   border: 0 none;
   border-radius: 0;
-  color: #696763;
+  color: #2c2c2c;
   padding:0px;
 }
 
@@ -199,7 +199,7 @@ a#scrollUp i{
 
 .shop-menu ul li a {
   background: #FFFFFF;
-  color: #696763;
+  color: #2c2c2c;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 300;
@@ -239,7 +239,7 @@ a#scrollUp i{
 }
 
 .mainmenu ul li a {
-	color: #696763;
+	color: #2c2c2c;
 	font-family: 'Roboto', sans-serif;
 	font-size: 17px;
 	font-weight: 300;
@@ -255,7 +255,7 @@ a#scrollUp i{
 .search_box input {
   background: #F0F0E9;
   border: medium none;
-  color: #B2B2B2;
+  color: #2c2c2c;
   font-family: 'roboto';
   font-size: 12px;
   font-weight: 300;
@@ -508,7 +508,7 @@ ul.sub-menu {
 
 .searchform input {
   border: 1px solid #DDDDDD;
-  color: #CCCCC6;
+  color: #2c2c2c;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   margin-top: 0;
@@ -538,7 +538,7 @@ ul.sub-menu {
 }
 
 .searchform p {
-  color: #8C8C88;
+  color: #2c2c2c;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 300;
@@ -723,7 +723,7 @@ h2.title:before{
 }
 
 .category-products .panel-default .panel-heading .panel-title a {
-  color: #696763;
+  color: #2c2c2c;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   text-decoration: none;
@@ -737,7 +737,7 @@ h2.title:before{
 .category-products .badge {
   background:none;
   border-radius: 10px;
-  color: #696763;
+  color: #2c2c2c;
   display: inline-block;
   font-size: 12px;
   font-weight: bold;
@@ -755,7 +755,7 @@ h2.title:before{
 
 
 .panel-body ul li a {
-  color: #696763;
+  color: #2c2c2c;
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   text-transform: uppercase;
@@ -770,7 +770,7 @@ h2.title:before{
 
 .brands-name .nav-stacked li a {
   background-color: #FFFFFF;
-  color: #696763;
+  color: #2c2c2c;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   padding: 5px 25px;
@@ -780,7 +780,7 @@ h2.title:before{
 
 .brands-name .nav-stacked li a:hover{
   background-color: #fff;
-  color: #696763;
+  color: #2c2c2c;
 }
 
 .shipping {
@@ -880,7 +880,7 @@ h2.title {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: #696763;
+  color: #2c2c2c;
 }
 
 .productinfo img{
@@ -946,7 +946,7 @@ h2.title {
   background:#F5F5ED;
   border: 0 none;
   border-radius: 0;
-  color: #696763;
+  color: #2c2c2c;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
   margin-bottom: 25px;
@@ -1238,7 +1238,7 @@ h2.title {
 }
 
 .product-information p {
-  color: #696763;
+  color: #2c2c2c;
   font-family: 'Roboto', sans-serif;
   margin-bottom: 5px;
 }
@@ -1260,7 +1260,7 @@ h2.title {
 }
 .product-information span input {
   border: 1px solid #DEDEDC;
-  color: #696763;
+  color: #2c2c2c;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   font-weight: 700;
@@ -1271,7 +1271,7 @@ h2.title {
 }
 
 .product-information span label {
-  color: #696763;
+  color: #2c2c2c;
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   margin-right: 5px;
@@ -1320,7 +1320,7 @@ h2.title {
 }
 
 #reviews ul li a {
-  color: #696763;
+  color: #2c2c2c;
   display: block;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
@@ -1442,7 +1442,7 @@ h2.title {
 }
 
 .login-form h2, .signup-form h2 {
-  color: #696763;
+  color: #2c2c2c;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   font-weight: 300;
@@ -1452,13 +1452,28 @@ h2.title {
 
 .login-form form input, .signup-form form input {
   background: #F0F0E9;
-  border: medium none;
-  color: #696763;
+  border: 1px solid #ccc;
+  color: #2c2c2c;
   display: block;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 300;
   height: 40px;
+  margin-bottom: 10px;
+  outline: medium none;
+  padding-left: 10px;
+  width: 100%;
+}
+
+.signup-form form textarea {
+  background: #F0F0E9;
+  border: 1px solid #ccc;
+  color: #2c2c2c;
+  display: block;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  height: 200px;
   margin-bottom: 10px;
   outline: medium none;
   padding-left: 10px;
@@ -1611,12 +1626,12 @@ h2.title {
 }
 
 #cart_items .cart_info .cart_description p {
-  color:#696763
+  color:#2c2c2c
 }
 
 
 #cart_items .cart_info .cart_price p {
-  color:#696763;
+  color:#2c2c2c;
   font-size: 18px
 }
 
@@ -1633,7 +1648,7 @@ h2.title {
 
 .cart_quantity_button a {
   background:#F0F0E9;
-  color: #696763;
+  color: #2c2c2c;
   display: inline-block;
   font-size: 16px;
   height: 28px;
@@ -1645,7 +1660,7 @@ h2.title {
 
 
 .cart_quantity_input {
-  color: #696763;
+  color: #2c2c2c;
   float: left;
   font-size: 16px;
   text-align: center;
@@ -1698,7 +1713,7 @@ h2.title {
 
 #do_action .total_area, #do_action .chose_area {
   border: 1px solid #E6E4DF;
-  color: #696763;
+  color: #2c2c2c;
   padding: 30px 25px 30px 0;
   margin-bottom: 80px;
 }
@@ -1709,14 +1724,14 @@ h2.title {
 
 .total_area ul li {
   background:#E6E4DF;
-  color: #696763;
+  color: #2c2c2c;
   margin-top: 10px;
   padding: 7px 20px;
 }
 
 
 .user_option label {
-  color: #696763;
+  color: #2c2c2c;
   font-weight: normal;
   margin-left: 10px;
 }
@@ -1730,7 +1745,7 @@ h2.title {
 }
 
 .user_info label {
-  color: #696763;
+  color: #2c2c2c;
   display: block;
   font-size: 15px;
   font-weight: normal;
@@ -1757,7 +1772,7 @@ h2.title {
 .user_info input, select, textarea {
   background: #F0F0E9;
   border:0;
-  color: #696763;
+  color: #2c2c2c;
   padding: 5px;
   width: 100%;
   border-radius: 0;
@@ -1830,7 +1845,7 @@ h2.title {
 .checkout-options .nav li {
   float: left;
   margin-right: 45px;
-  color: #696763;
+  color: #2c2c2c;
   font-size: 18px;
   font-family: 'Roboto', sans-serif;
   font-weight: normal;
@@ -1879,7 +1894,7 @@ h2.title {
 .shopper-info p, 
 .bill-to p, 
 .order-message p {
-  color: #696763;
+  color: #2c2c2c;
   font-size: 20px;
   font-weight: 300
 }
@@ -1903,7 +1918,8 @@ h2.title {
 .shopper-info > form > input, 
 .form-two > form > select, 
 .form-two > form > input, 
-.form-one > form > input {
+.form-one > form > input,
+.form > textarea {
   background:#F0F0E9;
   border: 0 none;
   margin-bottom:10px;
@@ -1930,7 +1946,7 @@ h2.title {
 
 .order-message label {
   font-weight:300;
-  color: #696763;
+  color: #2c2c2c;
   font-family: 'Roboto', sans-serif;
   margin-left: 10px;
   font-size: 14px
@@ -1938,7 +1954,7 @@ h2.title {
 
 
 .review-payment h2 {
-  color: #696763;
+  color: #2c2c2c;
   font-size: 20px;
   font-weight: 300;
   margin-top: 45px;
@@ -1951,7 +1967,7 @@ h2.title {
 }
 
 .payment-options span label {
-  color: #696763;
+  color: #2c2c2c;
   font-size: 14px;
   font-weight: 300;
   margin-right: 30px;
@@ -1961,7 +1977,7 @@ h2.title {
 .table.table-condensed.total-result {
   margin-bottom: 10px;
   margin-top: 35px;
-  color: #696763
+  color: #2c2c2c
 }
 
 #cart_items .cart_info 
@@ -1993,7 +2009,7 @@ h2.title {
 
 .blog-post-area 
 .single-blog-post h3 {
-  color: #696763;
+  color: #2c2c2c;
   font-size: 16px;
   font-family: 'Roboto',sans-serif;
   text-transform: uppercase;
@@ -2099,7 +2115,7 @@ h2.title {
   background:#F0F0E9;
   border: 0 none;
   border-radius: 0;
-  color: #696763;
+  color: #2c2c2c;
   margin-right: 5px;
   padding: 4px 12px;
 }
@@ -2126,7 +2142,7 @@ h2.title {
   background:#F0F0E9;
   border: 0 none;
   border-radius: 0;
-  color: #696763;
+  color: #2c2c2c;
   font-size: 12px;
   font-weight: 700;
   padding: 4px;
@@ -2444,7 +2460,7 @@ h2.title {
 #contact-page .form-control {
   background-color: #fff;
   border: 1px solid #ddd;
-  color: #696763;
+  color: #2c2c2c;
   height: 46px;
   padding: 6px 12px;
   width: 100%;
@@ -2481,7 +2497,7 @@ h2.title {
 
 #contact-page .contact-info p {
   margin-bottom: 0;
-  color: #696763;
+  color: #2c2c2c;
   font-size: 16px;
   line-height: 25px;
 }
@@ -2527,4 +2543,123 @@ ps {
   padding-left: 10px;
 }
 
+#form {
+  margin-top: 0;
+  margin-bottom: 250px;
+}
 
+h7 {
+  font-size: 0.9em;
+}
+
+.fa-pencil {
+  margin-left: 10px;
+  color: #770000;
+  font-size: 0.7em;
+}
+
+img .fa-pencil {
+  padding-top: 100px;
+}
+
+.follow {
+  margin-left: 15px;
+}
+
+.well {
+  padding-top: 12px;
+  padding-left: 12px;
+  border: none;
+  background-color: #fdf2e8;
+}
+
+@media (min-width: 991px) {
+  .well {
+    height: 110px;
+  }
+
+  .container > .row > .well {
+    height: 350px;
+  }
+}
+
+.well .col-md-8 {
+  margin-top: -12px;
+}
+
+.well .col-md-8 > p {
+  margin-top: -5px;
+  font-size: 0.9em;
+}
+
+textarea {
+  background: #F0F0E9;
+  border: medium none;
+  color: #A6A6A1;
+  height: 195px;
+  margin-bottom: 25px;
+  margin-top: 15px;
+  outline: medium none;
+  padding-left: 10px;
+  padding-top: 15px;
+  resize: none;
+  width: 99.5%;
+}
+
+.product-information > p {
+  font-size: 0.8em;
+}
+
+.product-information > span > h1 {
+  margin-top: -5px;
+  margin-bottom: -15px;
+  color: #770000;
+}
+
+.product-information > form > button {
+  background-color: #770000;
+  color: #fff;
+  border-radius: 0;
+  border-color: transparent;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.product-information > span > label {
+  margin-top: 20px;
+  margin-bottom: -15px;
+  color: #770000;
+}
+
+table > thead > tr > th {
+  text-align: center;
+}
+
+table > tbody > tr > td > a > i {
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  color: #770000;
+}
+
+table {
+  font-size: 0.9em;
+  /*width: auto !important;*/
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #000;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #000;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #000;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #000;
+}

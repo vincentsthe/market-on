@@ -2,9 +2,7 @@
 	use app\assets\CalendarAsset;
 	CalendarAsset::register($this);
 ?>
-<div id="my-calendar"></div>
-
-<div id="my-calendar"></div>
+<div id="my-calendar" style='width:100% !important'></div>
 
 <script>
     $(document).ready(function () {
