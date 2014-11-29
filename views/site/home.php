@@ -14,7 +14,8 @@
 							<?= Html::img($item->image_url,['width'=>250,'height'=>250]); ?>
 							<h2>Rp<?=$item->price;?></h2>
 							<p><?=$item->name; ?></p>
-							<ps>Penjual: <?=$item->user->fullname;?></ps><br />
+
+							<ps>Penjual: <?=Html::a($item->user->fullname,['/user/follow','id'=>$item->user->id]);?></ps><br />
 							<ps><i class="fa fa-th-large"></i> Stok <?=$item->quantity;?></ps>
 							<ps><i class="fa fa-crosshairs"></i> Bandung</ps><br>
 

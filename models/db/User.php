@@ -64,6 +64,14 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     }
 
     /**
+    * @return \yii\db\ActiveQuery
+    */
+   public function getItems()
+   {
+       return $this->hasMany(Item::className(), ['user_id' => 'id']);
+   }
+   
+    /**
      * @return \yii\db\ActiveQuery
      */
     public function getCods()
