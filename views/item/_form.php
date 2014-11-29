@@ -15,7 +15,7 @@ use yii\helpers\ArrayHelper;
     <?= $form->errorSummary($model); ?>
     <?= Html::activeTextInput($model, 'name',['placeholder'=>'nama']); ?>
 
-    <?= Html::activeTextInput($model, 'price',['placeholder'=>'harga']); ?>
+    <?= Html::activeTextInput($model, 'price',['placeholder'=>'harga (rp)']); ?>
 
     <?= $form->field($model,'_file')->fileInput(); ?>
 

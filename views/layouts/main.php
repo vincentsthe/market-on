@@ -62,7 +62,7 @@ if (isset($this->context->login_form)) {
                                     ['label' => '<i class="fa fa-dollar"></i>Jual Barang', 'url' => ['/item/create']],
                                     ['label' => '<i class="fa fa-list"></i> Lihat Tawaran', 'url' => ['/cod/index']],
                                     ['label' => '<i class="fa fa-calendar"></i> Jadwal', 'url' => ['/cod/calendar']],
-                                    ['label' => '<i class="fa fa-crosshairs"></i> Locator', 'url' => ['/locator/index']],
+                                    //['label' => '<i class="fa fa-crosshairs"></i> Locator', 'url' => ['/locator/index']],
                                 ],
                                 'encodeLabels' => false
                             ]);
@@ -93,7 +93,7 @@ if (isset($this->context->login_form)) {
                                 'labelOptions' => ['class' => 'col-lg-1 control-label'],
                             ],
                         ]); ?>
-
+                        <?= $form->errorSummary($login_form); ?>
                         <?= Html::activeTextInput($login_form, 'username',['placeholder' => 'Username']); ?>
 
                         <?= Html::activePasswordInput($login_form, 'password',['placeholder' => 'Password']); ?>

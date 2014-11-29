@@ -98,6 +98,9 @@ class UserController extends Controller
         }
     }
 
+    public function actionFollow(){
+       return $this->render('follow');
+    }
     /**
      * Deletes an existing User model.
      * If deletion is successful, the browser will be redirected to the 'index' page.

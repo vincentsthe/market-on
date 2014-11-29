@@ -14,10 +14,11 @@
 							<?= Html::img($item->image_url,['width'=>250,'height'=>250]); ?>
 							<h2>Rp<?=$item->price;?></h2>
 							<p><?=$item->name; ?></p>
-							<ps><?=$item->user->fullname;?></ps><br />
-							<ps><i class="fa fa-th-large"></i> <?=$item->quantity;?></ps>
-							<ps><i class="fa fa-crosshairs"></i> Bandung</ps>
-							<?=Html::a('Pesan',['/cod/create','item_id'=>$item->id]); ?>
+							<ps>Penjual: <?=$item->user->fullname;?></ps><br />
+							<ps><i class="fa fa-th-large"></i> Stok <?=$item->quantity;?></ps>
+							<ps><i class="fa fa-crosshairs"></i> Bandung</ps><br>
+
+							<?=Html::a('Beli',['/cod/create','item_id'=>$item->id],['class'=>'btn btn-primary']); ?>
 						</div>
 				</div>
 			</div>
@@ -36,69 +37,28 @@
 	</div>
 	<div class="tab-content">
 		<div class="tab-pane fade active in" id="tshirt" >
+			<?php for ($i = 0; $i < 4; $i++): ?>
 			<div class="col-sm-3">
 				<div class="product-image-wrapper">
-			<div class="single-products">
+					<div class="single-products">
 					<div class="productinfo text-center">
-						<img src="images/home/zenfone6.png" alt="" />
-						<h2>$56</h2>
-						<p>Samsung Zenfone 6</p>
+						<?=Html::img(Yii::getAlias('@web')."/img/mockup/celana_jeans.jpg",['width'=>200,'height'=>200]); ?>
+						<h2>Rp200000</h2>
+						<p>Celana Jeans</p>
 						<ps>by Muhammad Yafi</ps><br />
 						<ps><i class="fa fa-th-large"></i> 10 pcs</ps>
 						<ps><i class="fa fa-crosshairs"></i> Bandung</ps>
 					</div>
-			</div>
-		</div>
-			</div>
-			<div class="col-sm-3">
-				<div class="product-image-wrapper">
-			<div class="single-products">
-					<div class="productinfo text-center">
-						<img src="images/home/zenfone6.png" alt="" />
-						<h2>$56</h2>
-						<p>Samsung Zenfone 6</p>
-						<ps>by Muhammad Yafi</ps><br />
-						<ps><i class="fa fa-th-large"></i> 10 pcs</ps>
-						<ps><i class="fa fa-crosshairs"></i> Bandung</ps>
+					</div>
 					</div>
 			</div>
-		</div>
-			</div>
-			<div class="col-sm-3">
-				<div class="product-image-wrapper">
-			<div class="single-products">
-					<div class="productinfo text-center">
-						<img src="images/home/zenfone6.png" alt="" />
-						<h2>$56</h2>
-						<p>Samsung Zenfone 6</p>
-						<ps>by Muhammad Yafi</ps><br />
-						<ps><i class="fa fa-th-large"></i> 10 pcs</ps>
-						<ps><i class="fa fa-crosshairs"></i> Bandung</ps>
-					</div>
-			</div>
-		</div>
-			</div>
-			<div class="col-sm-3">
-				<div class="product-image-wrapper">
-			<div class="single-products">
-					<div class="productinfo text-center">
-						<img src="images/home/zenfone6.png" alt="" />
-						<h2>$56</h2>
-						<p>Samsung Zenfone 6</p>
-						<ps>by Muhammad Yafi</ps><br />
-						<ps><i class="fa fa-th-large"></i> 10 pcs</ps>
-						<ps><i class="fa fa-crosshairs"></i> Bandung</ps>
-					</div>
-			</div>
-		</div>
-			</div>
-		</div>
+			<?php endfor; ?>
 		
-		
+		</div>
 	</div>
 </div><!--/category-tab-->
 
-<div class="recommended_items"><!--recommended_items-->
+<!-- <div class="recommended_items">
 	<h2 class="title text-center">Rekomendasi</h2>
 	
 	<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
@@ -170,5 +130,5 @@
 			<i class="fa fa-angle-right"></i>
 		  </a>			
 	</div>
-</div><!--/recommended_items-->
+</div> -->
 </div>

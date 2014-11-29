@@ -22,6 +22,7 @@
     </div>
   </div>
 </div>
+<div id="my-calendar" style='width:100% !important'></div>
 
 <script>
     function myDateFunction(id) {

@@ -52,11 +52,11 @@ class Cod extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'date' => 'Tanggal Ketemuan',
+            'date' => 'Tanggal Bertemu',
             'description' => 'Deskripsi',
             'buyer_id' => 'Buyer ID',
             'seller_id' => 'Seller ID',
-            'quantity' => 'Quantity',
+            'quantity' => 'Kuantitas',
             'lat' => 'Lat',
             'lng' => 'Lng',
             'item_id' => 'Item ID',
