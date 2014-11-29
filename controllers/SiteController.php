@@ -6,9 +6,11 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
+use app\api\BestApp;
 use app\models\db\User;
 use app\models\forms\LoginForm;
 use app\models\forms\ContactForm;
+use app\models\db\Category;
 use app\models\db\Item;
 class SiteController extends Controller
 {
@@ -88,6 +90,7 @@ class SiteController extends Controller
                 $record['latitude'] = $toko->lat;
                 $record['longitude'] = $toko->lng;
                 $record['url'] = Yii::$app->urlManager->createUrl(['/user/view', 'id'=>$toko->id]);
+                $record['category'] = $toko->category->name;
 
                 $return[] = $record;
             }
@@ -122,5 +125,9 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionTestoken() {
+        BestApp::getToken();
     }
 }
