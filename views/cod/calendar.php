@@ -17,7 +17,8 @@
             Transaksi dengan Yafi di Cihampelas Walk.
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-success" data-dismiss="modal">Selesai Transaksi</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
       </div>
     </div>
   </div>
